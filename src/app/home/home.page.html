@@ -1,20 +1,56 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-menu contentId="main-content">
+  <ion-header>
+  </ion-header>
+  <ion-content class="ion-padding">Menu 1</ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">Ana Sayfa </ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content class="ion-padding">
+       <ion-searchbar show-clear-button="never" value="Mekan ara" > </ion-searchbar> 
+       <!-- <img src="../assets/icon/Filterbutton.svg" alt="filterbutton" width="40" height="40">  -->
+       <ion-title>
+        Sonuçlar
+      </ion-title>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+      <ion-card *ngFor="let restaurants of restaurant">
+        <img alt="image1" src="../assets/icon/visneli-sarmal.png" />
+        <ion-card-header>
+           <ion-card-title>{{restaurants.title}}</ion-card-title> 
+          <ion-card-subtitle>Coffie,Tatlı</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-infinite-scroll (ionInfinite)="loadData($event)">
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Yükleniyor...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      
+<ion-row>
+  <ion-col col-2>
+    <ion-card-content>
+      3 km yakınında
+    </ion-card-content>
+  
+    <ion-card-content >
+      <img src="../assets/icon/shopping_basket-24px.svg" alt="basketicon">
+      Min. Sipariş Tutarı: 30₺
+    </ion-card-content>
+  
+    <ion-card-content>
+      İşletme Açık 10:00/22:00
+    </ion-card-content>
+  </ion-col>
+</ion-row>
+      </ion-card>
+  </ion-content>
+</div>
+
+
