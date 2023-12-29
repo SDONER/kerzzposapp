@@ -14,12 +14,12 @@
   </ion-header>
   <ion-content class="ion-padding">
        <ion-searchbar show-clear-button="never" value="Mekan ara" > </ion-searchbar> 
-       <!-- <img src="../assets/icon/Filterbutton.svg" alt="filterbutton" width="40" height="40">  -->
+
        <ion-title>
         Sonuçlar
       </ion-title>
 
-      <ion-card *ngFor="let restaurants of restaurant">
+      <ion-card class="ion-card" *ngFor="let restaurants of restaurant">
         <img alt="image1" src="../assets/icon/visneli-sarmal.png" />
         <ion-card-header>
            <ion-card-title>{{restaurants.title}}</ion-card-title> 
@@ -34,7 +34,6 @@
         </ion-infinite-scroll>
       
 <ion-row>
-  <ion-col col-2>
     <ion-card-content>
       3 km yakınında
     </ion-card-content>
@@ -47,7 +46,7 @@
     <ion-card-content>
       İşletme Açık 10:00/22:00
     </ion-card-content>
-  </ion-col>
+
 </ion-row>
       </ion-card>
   </ion-content>

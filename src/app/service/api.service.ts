@@ -45,5 +45,11 @@ export class ApiService {
 
     return  this.httpClient.post<ResponseModel>(this.baseUrl , body, {headers: this.getHeaders()});
   }
+
+
+  getImagesById(id:number):Observable<ResponseModel>{
+    let newPath = this.baseUrl + id ;
+    return this.httpClient.get<ResponseModel>(newPath);
+  } 
 }
    
